@@ -26,6 +26,7 @@
 <body>
 
 <a class="skip" href="#work">Skip to selected work</a>
+<div class="progress" aria-hidden="true"></div>
 
 <nav class="pill" aria-label="Primary">
   <a href="#work">Projects</a>
@@ -50,6 +51,8 @@
   <p class="corner corner-r">&copy; 2026 Manas Gupta Kesarla</p>
 </header>
 
+<div class="ticker" aria-hidden="true"><div class="ticker-track"><span>FastAPI</span><span class="s">/</span><span>PostgreSQL</span><span class="s">/</span><span>React</span><span class="s">/</span><span>TypeScript</span><span class="s">/</span><span>Astro</span><span class="s">/</span><span>AWS</span><span class="s">/</span><span>Whisper</span><span class="s">/</span><span>GitHub Actions</span><span class="s">/</span><span>PyTorch</span><span class="s">/</span><span>scikit-learn</span><span class="s">/</span><span>MCTS</span><span class="s">/</span><span>Transformers.js</span><span class="s">/</span><span>WebGPU</span><span class="s">/</span><span>Gemini</span><span class="s">/</span><span>FastAPI</span><span class="s">/</span><span>PostgreSQL</span><span class="s">/</span><span>React</span><span class="s">/</span><span>TypeScript</span><span class="s">/</span><span>Astro</span><span class="s">/</span><span>AWS</span><span class="s">/</span><span>Whisper</span><span class="s">/</span><span>GitHub Actions</span><span class="s">/</span><span>PyTorch</span><span class="s">/</span><span>scikit-learn</span><span class="s">/</span><span>MCTS</span><span class="s">/</span><span>Transformers.js</span><span class="s">/</span><span>WebGPU</span><span class="s">/</span><span>Gemini</span><span class="s">/</span><span>FastAPI</span><span class="s">/</span><span>PostgreSQL</span><span class="s">/</span><span>React</span><span class="s">/</span><span>TypeScript</span><span class="s">/</span><span>Astro</span><span class="s">/</span><span>AWS</span><span class="s">/</span><span>Whisper</span><span class="s">/</span><span>GitHub Actions</span><span class="s">/</span><span>PyTorch</span><span class="s">/</span><span>scikit-learn</span><span class="s">/</span><span>MCTS</span><span class="s">/</span><span>Transformers.js</span><span class="s">/</span><span>WebGPU</span><span class="s">/</span><span>Gemini</span><span class="s">/</span><span>FastAPI</span><span class="s">/</span><span>PostgreSQL</span><span class="s">/</span><span>React</span><span class="s">/</span><span>TypeScript</span><span class="s">/</span><span>Astro</span><span class="s">/</span><span>AWS</span><span class="s">/</span><span>Whisper</span><span class="s">/</span><span>GitHub Actions</span><span class="s">/</span><span>PyTorch</span><span class="s">/</span><span>scikit-learn</span><span class="s">/</span><span>MCTS</span><span class="s">/</span><span>Transformers.js</span><span class="s">/</span><span>WebGPU</span><span class="s">/</span><span>Gemini</span><span class="s">/</span></div></div>
+
 <main>
   <section id="work" class="wrap" aria-labelledby="work-h">
     <h2 class="label" id="work-h">Selected work</h2>
@@ -62,17 +65,17 @@
         <p class="sum">A multi-tenant SaaS that runs an environmental laboratory from sample collection to invoice. I did the field research, built the product and set up how it runs in production.</p>
       </header>
 
-      <div class="f-cols">
+      <div class="f-cols stagger">
         <section class="f-col" aria-labelledby="f-discovery">
           <p class="f-k">1 · Field research</p>
           <h4 id="f-discovery">Discovery</h4>
-          <ul class="dlist">
+          <ul class="dlist stagger">
             <li>I visited the office of an environmental testing laboratory in India and interviewed 13 employees, about 30 minutes each, across their roles. I also spoke with the founder.</li>
             <li>I mapped the whole workflow end to end: customer request, sample collection, testing, review, reporting and invoicing.</li>
             <li>I wrote down the problems each person faced in their own work, then turned them directly into features.</li>
           </ul>
           <p class="f-sub">Problem heard, feature built</p>
-          <ul class="pairs">
+          <ul class="pairs stagger">
             <li><span class="heard">Keeping quotes, purchase orders and invoices in step</span><span class="built">Quotes, purchase orders and invoices reconciled</span></li>
             <li><span class="heard">Checking work before a report goes out</span><span class="built">Quality checks before reports go out</span></li>
             <li><span class="heard">Getting notes written down</span><span class="built">Staff dictate notes by voice</span></li>
@@ -83,7 +86,7 @@
           <p class="f-k">2 · What I built</p>
           <h4 id="f-product">Product</h4>
           <p class="f-text">A multi-tenant SaaS for environmental laboratories: sample lifecycle, quotes, work orders, certificates, billing and a customer portal. I co-founded it and built the backend, the web app and the marketing site.</p>
-          <ul class="dlist">
+          <ul class="dlist stagger">
             <li>PostgreSQL row-level security isolates each lab's data.</li>
             <li>Role-based access.</li>
             <li>A hash-chained audit trail.</li>
@@ -135,7 +138,7 @@
               <text class="a-s" x="266" y="275" text-anchor="middle">email</text>
             </svg>
           </figure>
-          <ul class="dlist">
+          <ul class="dlist stagger">
             <li>AWS Amplify for hosting.</li>
             <li>AWS EC2 for the API server, behind Nginx and managed with systemd.</li>
             <li>PostgreSQL installed directly on the server, not RDS.</li>
@@ -267,7 +270,7 @@
            alt="Manas on a beach at sunset, smiling and giving two thumbs up, with a maroon sweater over his shoulders.">
       <div class="about-text">
         <p class="lead reveal">I'm a second-year AI &amp; ML student at DSCE in Bengaluru. I like building things end to end: a SaaS for laboratories, a privacy agent for the browser, a chess engine trained on a laptop. I care about measuring results honestly, even when the result is a null.</p>
-        <dl class="skills reveal">
+        <dl class="skills stagger">
           <div><dt>Languages</dt><dd>Python, TypeScript, JavaScript, C, SQL</dd></div>
           <div><dt>AI / ML</dt><dd>PyTorch, scikit-learn, Whisper, LLM APIs, MCTS</dd></div>
           <div><dt>Web</dt><dd>FastAPI, React, Astro, Tailwind CSS, Flask</dd></div>
@@ -277,7 +280,7 @@
 
         <div class="wins reveal">
           <h3 class="label">Public speaking</h3>
-          <div class="wins-grid">
+          <div class="wins-grid stagger">
             <figure>
               <img src="jam-kristu-jayanti.jpg" width="400" height="708" loading="lazy" decoding="async"
                    alt="DSCE Centre for Performing Arts poster congratulating Manas Kesarla of LITSOC on winning first place in Just-A-Minute at Kristu Jayanti University during the TATVA fest.">
@@ -298,7 +301,7 @@
     <div class="wrap contact">
     <h2 class="label" id="contact-h">Contact</h2>
     <p class="big reveal">Open to internships. Say hello.</p>
-    <ul class="contact-links reveal">
+    <ul class="contact-links stagger">
       <li><a href="mailto:manas.kesarla@gmail.com">manas.kesarla@gmail.com</a></li>
       <li><a href="https://www.linkedin.com/in/manas-gupta-kesarla-a68279376/">LinkedIn<span class="ext" aria-hidden="true"> ↗</span></a></li>
       <li><a href="https://github.com/manaskesarla">GitHub<span class="ext" aria-hidden="true"> ↗</span></a></li>

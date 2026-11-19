@@ -18,6 +18,7 @@
   var W = 0, H = 0, dpr = 1;
   var bg = '#ffffff', ink = '#0a0a0a', accent = '#ff6a00';
   var t = 0, last = 0, raf = 0, onScreen = true;
+  var born = performance.now();   // the lines grow up from flat when the page loads
 
   // Deterministic random so the composition is the same on every visit.
   var seed = 72;
@@ -93,6 +94,7 @@
     var sy = Math.pow(H * 0.14, 2);
     var pullK = pointer.k;
     var kRange = KMAX - KMIN;
+    var elapsed = reduce ? 1e9 : performance.now() - born;
 
     ctx.fillStyle = bg;
     ctx.fillRect(0, 0, W, H);
@@ -115,6 +117,8 @@
       var x0 = left + shear * (1 - f);
       var gi = i * NB;
       var drift = (f - 0.5) * 0.01;
+      var gr = Math.min(1, Math.max(0, (elapsed - 250 - (1 - f) * 700) / 1400));
+      gr = 1 - Math.pow(1 - gr, 3);                    // ease out
 
       for (var n = 0; n <= pts; n++) {
         var u = n / pts;
@@ -125,7 +129,7 @@
           d += gain[gi + q] * heights[q] / (1 + g * g);   // Lorentzian band shape
         }
         d += 0.06 * u;                                     // gentle sloping baseline
-        var y = y0 - d * amp;
+        var y = y0 - d * amp * gr;
         if (pullK > 0.001) {
           var dx = x - pointer.x, dy = y0 - pointer.y;
           var w = Math.exp(-(dx * dx) / sx - (dy * dy) / sy);
@@ -258,17 +262,84 @@
   setInterval(tick, 1000);
 })();
 
-/* Scroll reveal */
+/* Page motion: reveal, word-by-word headlines, stagger, scroll progress, parallax, nav highlight */
 (function () {
-  var els = document.querySelectorAll('.reveal');
-  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    for (var i = 0; i < els.length; i++) els[i].classList.add('in');
-    return;
+  'use strict';
+  var root = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 1. Split headlines into words so each can rise into place.
+  if (!reduce) {
+    var heads = document.querySelectorAll('.f-head h3, .row h3, .big');
+    for (var h = 0; h < heads.length; h++) {
+      var el = heads[h], words = el.textContent.trim().split(/\s+/);
+      el.textContent = '';
+      for (var w = 0; w < words.length; w++) {
+        var outer = document.createElement('span'); outer.className = 'w';
+        var inner = document.createElement('span'); inner.className = 'wi';
+        inner.style.setProperty('--i', w);
+        inner.textContent = words[w];
+        outer.appendChild(inner); el.appendChild(outer);
+        if (w < words.length - 1) el.appendChild(document.createTextNode(' '));
+      }
+    }
   }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (en) {
-      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+
+  // 2. Give each child of a .stagger container its position in the cascade.
+  var groups = document.querySelectorAll('.stagger');
+  for (var g = 0; g < groups.length; g++) {
+    for (var c = 0; c < groups[g].children.length; c++) groups[g].children[c].style.setProperty('--i', c);
+  }
+
+  // 3. Reveal on scroll.
+  var els = document.querySelectorAll('.reveal, .stagger');
+  if (!('IntersectionObserver' in window) || reduce) {
+    for (var i = 0; i < els.length; i++) els[i].classList.add('in');
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    for (var j = 0; j < els.length; j++) io.observe(els[j]);
+  }
+
+  // 4. Scroll progress bar and hero parallax, one frame at a time.
+  var hero = document.querySelector('.hero'), ticking = false;
+  function update() {
+    ticking = false;
+    var y = window.pageYOffset || 0, vh = window.innerHeight || 1;
+    var max = root.scrollHeight - vh;
+    root.style.setProperty('--p', max > 0 ? Math.min(1, y / max).toFixed(4) : 0);
+    if (!reduce && hero && y < vh * 1.3) {
+      hero.style.setProperty('--hy', (y * 0.22).toFixed(1));
+      hero.style.setProperty('--hp', Math.min(1, y / (vh * 0.7)).toFixed(3));
+    }
+  }
+  function queue() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', queue, { passive: true });
+  window.addEventListener('resize', queue);
+  update();
+
+  // 5. Highlight the nav link for the section in view.
+  if ('IntersectionObserver' in window) {
+    var links = {};
+    var anchors = document.querySelectorAll('.pill a[href^="#"]');
+    for (var k = 0; k < anchors.length; k++) links[anchors[k].getAttribute('href').slice(1)] = anchors[k];
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        var a = links[en.target.id];
+        if (!a) return;
+        if (en.isIntersecting) {
+          for (var id in links) links[id].removeAttribute('aria-current');
+          a.setAttribute('aria-current', 'location');
+        } else if (a.getAttribute('aria-current')) {
+          a.removeAttribute('aria-current');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    ['work', 'about', 'contact'].forEach(function (id) {
+      var sec = document.getElementById(id); if (sec) spy.observe(sec);
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
-  for (var j = 0; j < els.length; j++) io.observe(els[j]);
+  }
 })();
