@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manas Gupta Kesarla · AI/ML and full-stack developer</title>
+<meta name="description" content="Manas Gupta Kesarla is an AI/ML and full-stack developer and a B.E. AI &amp; ML student at DSCE, Bengaluru. Selected work: NovaLIMS, CONNOR, a chess engine and applied ML.">
+<meta name="author" content="Manas Gupta Kesarla">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://manaskesarla.github.io/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://manaskesarla.github.io/">
+<meta property="og:title" content="Manas Gupta Kesarla · AI/ML and full-stack developer">
+<meta property="og:description" content="B.E. AI &amp; ML student at DSCE, Bengaluru, building NovaLIMS, a SaaS for labs. Selected work and contact.">
+<meta property="og:image" content="https://manaskesarla.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Stacked black spectrum lines with one orange line on a white background, with the name Manas Gupta Kesarla.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<a class="skip" href="#work">Skip to selected work</a>
+
+<nav class="pill" aria-label="Primary">
+  <a href="#work">Projects</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+  <a href="Manas_Gupta_Kesarla_Resume.pdf" class="pill-cv" aria-label="Resume (PDF)">Resume</a>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="art" role="img" aria-label="Generative artwork: stacked lines shaped like infrared spectra, with peaks that drift slowly and bend toward the cursor."></canvas>
+  <a class="mark" href="#top" aria-label="Manas Gupta Kesarla, back to top">MGK</a>
+
+  <div class="intro">
+    <h1>Manas Gupta Kesarla</h1>
+    <p>AI/ML + full-stack developer</p>
+    <p>B.E. AI &amp; ML, DSCE, class of 2029</p>
+    <p>building <a href="https://novalims.in">NovaLIMS</a>, a SaaS for labs</p>
+  </div>
+
+  <a class="cue" href="#work"><span class="cue-line" aria-hidden="true"></span>view projects</a>
+  <p class="corner corner-l">My local time <time id="clock">--:--</time></p>
+  <p class="corner corner-r">&copy; 2026 Manas Gupta Kesarla</p>
+</header>
+
+<main>
+  <section id="work" class="wrap" aria-labelledby="work-h">
+    <h2 class="label" id="work-h">Selected work</h2>
+
+    <article class="feature reveal" aria-labelledby="p1">
+      <header class="f-head">
+        <p class="num">01 · Featured case study</p>
+        <h3 id="p1">NovaLIMS</h3>
+        <p class="ctx">Co-founder · live with a laboratory client</p>
+        <p class="sum">A multi-tenant SaaS that runs an environmental laboratory from sample collection to invoice. I did the field research, built the product and set up how it runs in production.</p>
+      </header>
+
+      <div class="f-cols">
+        <section class="f-col" aria-labelledby="f-discovery">
+          <p class="f-k">1 · Field research</p>
+          <h4 id="f-discovery">Discovery</h4>
+          <ul class="dlist">
+            <li>I visited the office of an environmental testing laboratory in India and interviewed 13 employees, about 30 minutes each, across their roles. I also spoke with the founder.</li>
+            <li>I mapped the whole workflow end to end: customer request, sample collection, testing, review, reporting and invoicing.</li>
+            <li>I wrote down the problems each person faced in their own work, then turned them directly into features.</li>
+          </ul>
+          <p class="f-sub">Problem heard, feature built</p>
+          <ul class="pairs">
+            <li><span class="heard">Keeping quotes, purchase orders and invoices in step</span><span class="built">Quotes, purchase orders and invoices reconciled</span></li>
+            <li><span class="heard">Checking work before a report goes out</span><span class="built">Quality checks before reports go out</span></li>
+            <li><span class="heard">Getting notes written down</span><span class="built">Staff dictate notes by voice</span></li>
+          </ul>
+        </section>
+
+        <section class="f-col" aria-labelledby="f-product">
+          <p class="f-k">2 · What I built</p>
+          <h4 id="f-product">Product</h4>
+          <p class="f-text">A multi-tenant SaaS for environmental laboratories: sample lifecycle, quotes, work orders, certificates, billing and a customer portal. I co-founded it and built the backend, the web app and the marketing site.</p>
+          <ul class="dlist">
+            <li>PostgreSQL row-level security isolates each lab's data.</li>
+            <li>Role-based access.</li>
+            <li>A hash-chained audit trail.</li>
+            <li>Whisper speech-to-text dictation.</li>
+            <li>An LLM turns plain-English questions into SQL, checked so it can only read.</li>
+          </ul>
+          <p class="f-text">Live at <a href="https://novalims.in">novalims.in</a> with a laboratory client.</p>
+        </section>
+
+        <section class="f-col" aria-labelledby="f-deploy">
+          <p class="f-k">3 · How it runs</p>
+          <h4 id="f-deploy">Deployment</h4>
+          <p class="f-text">I set all of this up by hand.</p>
+          <figure class="arch">
+            <svg viewBox="0 0 360 300" role="img" aria-labelledby="arch-t arch-d" focusable="false">
+              <title id="arch-t">NovaLIMS production architecture</title>
+              <desc id="arch-d">GitHub Actions runs automated tests and deploys. On AWS: Amplify for hosting; an EC2 server running Nginx in front of the API, managed with systemd, with PostgreSQL installed on the same server; an S3 bucket for file storage created with CloudFormation; and SES for email.</desc>
+              <defs>
+                <marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0.5L7 4L0 7.5" class="a-head"/></marker>
+              </defs>
+              <rect class="a-box a-strong" x="0.5" y="0.5" width="359" height="34" rx="4"/>
+              <text class="a-t" x="180" y="22" text-anchor="middle">GitHub Actions · tests and deploys</text>
+              <line class="a-line" x1="180" y1="35" x2="180" y2="53" marker-end="url(#ah)"/>
+
+              <rect class="a-group" x="0.5" y="54.5" width="359" height="244" rx="6"/>
+              <text class="a-l" x="12" y="73">AWS</text>
+
+              <rect class="a-box" x="12.5" y="84.5" width="335" height="34" rx="4"/>
+              <text class="a-t" x="180" y="106" text-anchor="middle">Amplify · hosting</text>
+
+              <rect class="a-box" x="12.5" y="128.5" width="335" height="98" rx="4"/>
+              <text class="a-l" x="24" y="146">EC2 · API server</text>
+              <rect class="a-box" x="24.5" y="160.5" width="88" height="50" rx="3"/>
+              <text class="a-t" x="68.5" y="182" text-anchor="middle">Nginx</text>
+              <rect class="a-box" x="134.5" y="160.5" width="88" height="50" rx="3"/>
+              <text class="a-t" x="178.5" y="182" text-anchor="middle">API</text>
+              <text class="a-s" x="178.5" y="198" text-anchor="middle">systemd</text>
+              <rect class="a-box" x="244.5" y="160.5" width="92" height="50" rx="3"/>
+              <text class="a-t" x="290.5" y="182" text-anchor="middle">PostgreSQL</text>
+              <text class="a-s" x="290.5" y="198" text-anchor="middle">on the server</text>
+              <line class="a-line" x1="113" y1="185.5" x2="133" y2="185.5" marker-end="url(#ah)"/>
+              <line class="a-line" x1="223" y1="185.5" x2="243" y2="185.5" marker-end="url(#ah)"/>
+
+              <rect class="a-box" x="12.5" y="238.5" width="165" height="48" rx="4"/>
+              <text class="a-t" x="95" y="259" text-anchor="middle">S3 · file storage</text>
+              <text class="a-s" x="95" y="275" text-anchor="middle">made with CloudFormation</text>
+              <rect class="a-box" x="184.5" y="238.5" width="163" height="48" rx="4"/>
+              <text class="a-t" x="266" y="259" text-anchor="middle">SES</text>
+              <text class="a-s" x="266" y="275" text-anchor="middle">email</text>
+            </svg>
+          </figure>
+          <ul class="dlist">
+            <li>AWS Amplify for hosting.</li>
+            <li>AWS EC2 for the API server, behind Nginx and managed with systemd.</li>
+            <li>PostgreSQL installed directly on the server, not RDS.</li>
+            <li>An S3 bucket for file storage, created with AWS CloudFormation.</li>
+            <li>Email through AWS SES.</li>
+            <li>Automated testing and deploys with GitHub Actions.</li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="f-foot">
+        <p class="tags">FastAPI · PostgreSQL · React · TypeScript · Astro · AWS (Amplify, EC2, S3, CloudFormation, SES) · Whisper · GitHub Actions</p>
+        <p class="links"><a href="https://novalims.in">novalims.in<span class="ext" aria-hidden="true"> ↗</span></a> <span class="aside">Code is private.</span></p>
+      </div>
+    </article>
+
+    <article class="row reveal" aria-labelledby="p2">
+      <p class="num" aria-hidden="true">02</p>
+      <div class="body">
+        <h3 id="p2">CONNOR</h3>
+        <p class="ctx">Team of 6 · top contributor, 38 of 97 commits</p>
+        <p class="sum">A browser-extension agent that finds and blacks out personal data in screenshots on-device, before anything reaches a model.</p>
+        <ul>
+          <li>On-device detection with a vision transformer (YOLOS-tiny on WebGPU), with a Gemini fallback.</li>
+          <li>Security layer: an action firewall with human approval, a prompt-injection test lab, and a gate that re-reads masked screenshots and blocks output on leftover PII.</li>
+        </ul>
+      </div>
+      <div class="meta">
+        <p class="tags">JavaScript · Transformers.js · WebGPU · Gemini</p>
+        <p class="links"><a href="https://github.com/VarchasHV/SIH">Code on GitHub<span class="ext" aria-hidden="true"> ↗</span></a></p>
+      </div>
+    </article>
+
+    <article class="row reveal" aria-labelledby="p3">
+      <p class="num" aria-hidden="true">03</p>
+      <div class="body">
+        <h3 id="p3">Chess engine</h3>
+        <p class="ctx">Live on Lichess as crook72</p>
+        <p class="sum">An AlphaZero-style engine trained on one laptop.</p>
+
+        <figure class="elo">
+          <figcaption>Elo against Stockfish</figcaption>
+          <div class="elo-plot" aria-hidden="true">
+            <div class="elo-row"><span class="elo-k">Network alone</span><span class="elo-track"><i style="--v:.1625"></i></span><b>1365</b></div>
+            <div class="elo-row"><span class="elo-k">Alpha-beta, depth 2</span><span class="elo-track"><i style="--v:.375"></i></span><b>1450</b></div>
+            <div class="elo-row"><span class="elo-k">Alpha-beta, depth 3</span><span class="elo-track"><i style="--v:.755"></i></span><b>1602</b></div>
+            <div class="elo-row hi"><span class="elo-k">Network + MCTS</span><span class="elo-track"><i style="--v:.825"></i></span><b>1630</b></div>
+            <div class="elo-row"><span class="elo-k">+ self-play</span><span class="elo-track"><i style="--v:.8675"></i></span><b>1647</b></div>
+            <div class="elo-axis"><span></span><span class="elo-ticks"><span>1300</span><span>1400</span><span>1500</span><span>1600</span><span>1700</span></span><span></span></div>
+          </div>
+          <table class="sr-only">
+            <caption>Elo against Stockfish by configuration</caption>
+            <thead><tr><th scope="col">Configuration</th><th scope="col">Elo</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Network alone</th><td>1365</td></tr>
+              <tr><th scope="row">Alpha-beta, depth 2</th><td>1450</td></tr>
+              <tr><th scope="row">Alpha-beta, depth 3</th><td>1602</td></tr>
+              <tr><th scope="row">Network + MCTS</th><td>1630</td></tr>
+              <tr><th scope="row">Network + MCTS + self-play</th><td>1647</td></tr>
+            </tbody>
+          </table>
+        </figure>
+        <p class="note">Search added about +265 Elo. Self-play added +17, which is inside the noise, so I report no gain.</p>
+      </div>
+      <div class="meta">
+        <p class="tags">Python · PyTorch · MCTS · UCI</p>
+        <p class="links">
+          <a href="https://github.com/manaskesarla/chessbot">Code on GitHub<span class="ext" aria-hidden="true"> ↗</span></a>
+          <a href="https://lichess.org/@/crook72">Play crook72 on Lichess<span class="ext" aria-hidden="true"> ↗</span></a>
+        </p>
+      </div>
+    </article>
+
+    <article class="row reveal" aria-labelledby="p4">
+      <p class="num" aria-hidden="true">04</p>
+      <div class="body">
+        <h3 id="p4">Microplastics from FTIR spectra</h3>
+        <p class="sum">An ML pipeline that names the polymer in a particle from its infrared spectrum, with calibrated confidence and an "unidentified" option.</p>
+        <ul>
+          <li>6,256 spectra, 8 classes, PCA + SVM, split by particle to avoid leakage.</li>
+          <li>87.7% accuracy and 0.873 macro-F1 on held-out particles.</li>
+        </ul>
+      </div>
+      <div class="meta">
+        <p class="tags">Python · scikit-learn · SVM · PCA</p>
+        <p class="links"><a href="https://github.com/manaskesarla/community-project-nuzhat">Code on GitHub<span class="ext" aria-hidden="true"> ↗</span></a></p>
+      </div>
+    </article>
+
+    <article class="row reveal" aria-labelledby="p5">
+      <p class="num" aria-hidden="true">05</p>
+      <div class="body">
+        <h3 id="p5">Damage claim verification</h3>
+        <p class="ctx">Built for the HackerRank Orchestrate Hackathon</p>
+        <p class="sum">A pipeline that checks whether photos support an insurance claim for a car, laptop or package.</p>
+        <ul>
+          <li>A Gemini vision model reads each image, and rules combine the evidence into a confidence score.</li>
+          <li>A separate risk score from claim history feeds a decision: supported, contradicted, or not enough information.</li>
+        </ul>
+      </div>
+      <div class="meta">
+        <p class="tags">Python · Gemini · Pandas</p>
+        <p class="links"><a href="https://github.com/manaskesarla/Damage-prediction-sytem">Code on GitHub<span class="ext" aria-hidden="true"> ↗</span></a></p>
+      </div>
+    </article>
+
+    <article class="row reveal" aria-labelledby="p6">
+      <p class="num" aria-hidden="true">06</p>
+      <div class="body">
+        <h3 id="p6">Hepatitis C screening</h3>
+        <p class="ctx">Team coursework · not a diagnostic tool</p>
+        <p class="sum">A study of whether ten routine blood measurements can flag hepatitis, fibrosis and cirrhosis in the public UCI dataset.</p>
+        <ul>
+          <li>On the held-out split, a random forest flagged 14 of 15 disease records with no false flags on 106 donors.</li>
+          <li>Fibrosis stayed hard to detect (0 of 4), and the report says so.</li>
+        </ul>
+      </div>
+      <div class="meta">
+        <p class="tags">Python · scikit-learn · Jupyter</p>
+        <p class="links"><a href="https://github.com/manaskesarla/Hepatitis-C-Screening">Code on GitHub<span class="ext" aria-hidden="true"> ↗</span></a></p>
+      </div>
+    </article>
+  </section>
+
+  <section id="about" class="wrap" aria-labelledby="about-h">
+    <h2 class="label" id="about-h">About</h2>
+    <div class="about">
+      <img class="photo reveal" src="manas.jpg" width="420" height="527" loading="lazy" decoding="async"
+           alt="Manas on a beach at sunset, smiling and giving two thumbs up, with a maroon sweater over his shoulders.">
+      <div class="about-text">
+        <p class="lead reveal">I'm a second-year AI &amp; ML student at DSCE in Bengaluru. I like building things end to end: a SaaS for laboratories, a privacy agent for the browser, a chess engine trained on a laptop. I care about measuring results honestly, even when the result is a null.</p>
+        <dl class="skills reveal">
+          <div><dt>Languages</dt><dd>Python, TypeScript, JavaScript, C, SQL</dd></div>
+          <div><dt>AI / ML</dt><dd>PyTorch, scikit-learn, Whisper, LLM APIs, MCTS</dd></div>
+          <div><dt>Web</dt><dd>FastAPI, React, Astro, Tailwind CSS, Flask</dd></div>
+          <div><dt>Data and cloud</dt><dd>PostgreSQL, AWS EC2/S3/SES, GitHub Actions</dd></div>
+          <div><dt>Beyond code</dt><dd>LITSOC, Public Speaking Association, Quiz Society. Two first places in Just-A-Minute, below.</dd></div>
+        </dl>
+
+        <div class="wins reveal">
+          <h3 class="label">Public speaking</h3>
+          <div class="wins-grid">
+            <figure>
+              <img src="jam-kristu-jayanti.jpg" width="400" height="708" loading="lazy" decoding="async"
+                   alt="DSCE Centre for Performing Arts poster congratulating Manas Kesarla of LITSOC on winning first place in Just-A-Minute at Kristu Jayanti University during the TATVA fest.">
+              <figcaption><b>First place, Just-A-Minute</b>Kristu Jayanti University, TATVA fest</figcaption>
+            </figure>
+            <figure>
+              <img src="jam-jyoti-nivas.jpg" width="400" height="709" loading="lazy" decoding="async"
+                   alt="DSCE Centre for Performing Arts poster congratulating Manas Kesarla of LITSOC on winning first place in Just-A-Minute at Jyoti Nivas College during the Scintillation '26 fest.">
+              <figcaption><b>First place, Just-A-Minute</b>Jyoti Nivas College, Scintillation '26</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-band" aria-labelledby="contact-h">
+    <div class="wrap contact">
+    <h2 class="label" id="contact-h">Contact</h2>
+    <p class="big reveal">Open to internships. Say hello.</p>
+    <ul class="contact-links reveal">
+      <li><a href="mailto:manas.kesarla@gmail.com">manas.kesarla@gmail.com</a></li>
+      <li><a href="https://www.linkedin.com/in/manas-gupta-kesarla-a68279376/">LinkedIn<span class="ext" aria-hidden="true"> ↗</span></a></li>
+      <li><a href="https://github.com/manaskesarla">GitHub<span class="ext" aria-hidden="true"> ↗</span></a></li>
+      <li><a href="Manas_Gupta_Kesarla_Resume.pdf">Resume (PDF)<span class="ext" aria-hidden="true"> ↗</span></a></li>
+    </ul>
+  </div>
+  </section>
+</main>
+
+<footer class="end">
+  <span>&copy; 2026 Manas Gupta Kesarla</span>
+  <a href="#top">Back to top</a>
+</footer>
+
+<script src="main.js" defer></script>
+</body>
+</html>
